@@ -11,3 +11,13 @@ app.use(
         credentials: true,
     })
 );
+
+app.use(express.json());
+
+app.get('/api/health', (_request, response) => {
+    response.json({message: 'Taskflow API is running'});
+});
+
+app.listen(port, () => {
+    console.log(`API running on http://localhost:${port}`);
+});
