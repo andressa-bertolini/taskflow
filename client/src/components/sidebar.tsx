@@ -13,7 +13,7 @@ export function Sidebar() {
     const pathname = usePathname();
 
     return(
-        <aside className="hidden min-h-screeb w-64 border-r border-slate-200 bg-white p-6 md:block">
+        <aside className="hidden min-h-screen w-64 border-r border-slate-200 bg-white p-6 md:block">
             <Link href="/" className="text-xl font-bold text-slate-900">
                 TaskFlow
             </Link>

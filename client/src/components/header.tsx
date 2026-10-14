@@ -16,7 +16,7 @@ export function Header() {
                 </div>
             </div>
 
-            <nav className="mt-4 flex gap-4 border-t border-slate-100 pt-4 text-sm font-medium text-slate-600">
+            <nav className="md:hidden mt-4 flex gap-4 border-t border-slate-100 pt-4 text-sm font-medium text-slate-600">
                 <Link href="/">Dashboard</Link>
                 <Link href="/projects">Projects</Link>
                 <Link href="/tasks">Tasks</Link>
