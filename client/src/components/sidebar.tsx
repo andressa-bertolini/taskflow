@@ -10,7 +10,7 @@ const links = [
 ];
 
 export function Sidebar() {
-    const pathname = usePathName();
+    const pathname = usePathname();
 
     return(
         <aside className="hidden min-h-screeb w-64 border-r border-slate-200 bg-white p-6 md:block">
