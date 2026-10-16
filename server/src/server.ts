@@ -81,7 +81,43 @@ const createProject: RequestHandler = (request, response) => {
         response.status(400).json({ message: "Project name is required"});
         return;
     }
+
+    const project: Project = {
+        id: nextProjectId,
+        name: body.name.trim(),
+        description:
+            typeof body.description === "string"
+            ? body.description.trim()
+            : "",
+    };
+
+    nextProjectId += 1;
+    projects.push(project);
+
+    response.status(201).json({data: project});
+};
+
+app.get("/api/projects", getProjects);
+app.get("/api/projects/:id", getProjectById);
+app.post("/api/projects", createProject);
+
+app.use((request, response) => {
+    response.status(404).json({
+        message: `Route ${request.method} ${request.path} not found`,
+    });
+});
+
+const errorHandler: ErrorRequestHandler = (
+    error,
+    _request,
+    response,
+    _next,
+) => {
+    console.error(error);
+    response.status(500).json({message: "SOmething went wrong"});
 }
+
+app.use(errorHandler);
 
 app.listen(port, () => {
     console.log(`API running on http://localhost:${port}`);
